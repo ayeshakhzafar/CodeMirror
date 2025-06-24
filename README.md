@@ -202,4 +202,4 @@ assert(sum >= 0);
 - 🧑‍🏫 Integrate **interactive proof assistance** when automatic verification fails.
 
 ---
-- Made by Ayesha 🧪
+Made by Ayesha 🧪
