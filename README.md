@@ -1,6 +1,6 @@
 # 🧠 CodeMirror – Web-Based Program Verification Tool
 
-**FormalVerifier** is a web-based application that helps analyze the **correctness** and **semantic equivalence** of programs written in a **custom mini-language**. Built using **React**, the tool leverages **formal methods** by converting code into **Static Single Assignment (SSA)** form and generating **SMT-LIB constraints** to verify them using the **Z3 SMT solver**.
+**CodeMirror** is a web-based application that helps analyze the **correctness** and **semantic equivalence** of programs written in a **custom mini-language**. Built using **React**, the tool leverages **formal methods** by converting code into **Static Single Assignment (SSA)** form and generating **SMT-LIB constraints** to verify them using the **Z3 SMT solver**.
 
 ---
 
@@ -57,13 +57,14 @@
 
 Below are some example programs you can run in the tool. You can paste them directly into the editor.
 
-FOR VERIFICATION:
+### FOR VERIFICATION:
 
+#### For loop:
 
-//for loop
 for (i := 0; i < n; i := i + 1) { for (j := 0; j < n - i - 1; j := j + 1) { if (arr[j] > arr[j+1]) { temp := arr[j]; arr[j] := arr[j+1]; arr[j+1] := temp; } } } assert(for (i in range (n)):arr[i] < arr[i+1]);
 
-//insertion sort
+#### Insertion sort:
+
 for (i := 1; i < n; i := i + 1) {
   key := arr[i];
   j := i - 1;
@@ -75,7 +76,8 @@ for (i := 1; i < n; i := i + 1) {
 }
 assert(for (i in range (n-1)): arr[i] <= arr[i+1]);
 
-//bubble sort
+#### Bubble sort:
+
 for (i := 0; i < n; i := i + 1) {
   for (j := 0; j < n - i - 1; j := j + 1) {
     if (arr[j] > arr[j+1]) {
@@ -87,15 +89,14 @@ for (i := 0; i < n; i := i + 1) {
 }
 assert(for (i in range (n-1)):arr[i] < arr[i+1]);
 
-//while loop
+#### while loop:
 x := 0;
 while (x < 4) {
   x := x + 1;
 }
 assert(x == 4);
 
-
-//if else
+#### If else:
 x := 3;
 if (x < 5) {
   y := x + 1;
@@ -105,10 +106,9 @@ if (x < 5) {
 assert(y > 0);
 
 
-FOR EQUIVALENCE:
+### FOR EQUIVALENCE:
 
-
-//1st pair:
+#### 1st pair:
 
 x := 0;
 while (x < 4) {
@@ -116,7 +116,8 @@ while (x < 4) {
 }
 assert(x == 4);
 
---------------------
+---
+---
 
 x := 0;
 for (i := 0; i < 4; i := i + 1) {
@@ -125,7 +126,7 @@ for (i := 0; i < 4; i := i + 1) {
 assert(x == 4);
 
 
-//2nd pair:
+#### 2nd pair:
 
 n := 10;  
 sum := 0;
@@ -136,7 +137,8 @@ while (i <= n) {
 }
 assert(sum >= 0);  
 
----------------------
+---
+---
 
 n := 10;  
 sum := 0;
