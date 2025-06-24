@@ -68,7 +68,7 @@ function App() {
   return (
     <AppContainer>
       <Header>
-        <Title>Program Analysis Tool</Title>
+        <Title>CodeMirror</Title>
         <Subtitle>Analyze and verify programs using formal methods</Subtitle>
       </Header>
       
