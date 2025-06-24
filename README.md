@@ -201,5 +201,5 @@ assert(sum >= 0);
 - 📣 Improve **error reporting** and counterexample display for easier debugging.
 - 🧑‍🏫 Integrate **interactive proof assistance** when automatic verification fails.
 
-
+---
 - Made by Ayesha 🧪
