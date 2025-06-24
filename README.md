@@ -57,21 +57,13 @@
 
 Below are some example programs you can run in the tool. You can paste them directly into the editor.
 
-<details>
-  <summary><strong>🔁 Insertion Sort</strong></summary>
+FOR VERIFICATION:
 
-for (i := 0; i < n; i := i + 1) {
-  for (j := 0; j < n - i - 1; j := j + 1) {
-    if (arr[j] > arr[j+1]) {
-      temp := arr[j];
-      arr[j] := arr[j+1];
-      arr[j+1] := temp;
-    }
-  }
-}
-assert(for (i in range(n)): arr[i] < arr[i+1]);
-</details> <details> <summary><strong>📗 Insertion Sort</strong></summary>
 
+//for loop
+for (i := 0; i < n; i := i + 1) { for (j := 0; j < n - i - 1; j := j + 1) { if (arr[j] > arr[j+1]) { temp := arr[j]; arr[j] := arr[j+1]; arr[j+1] := temp; } } } assert(for (i in range (n)):arr[i] < arr[i+1]);
+
+//insertion sort
 for (i := 1; i < n; i := i + 1) {
   key := arr[i];
   j := i - 1;
@@ -81,9 +73,9 @@ for (i := 1; i < n; i := i + 1) {
   }
   arr[j + 1] := key;
 }
-assert(for (i in range(n-1)): arr[i] <= arr[i+1]);
-</details> <details> <summary><strong>📙 Bubble Sort</strong></summary>
+assert(for (i in range (n-1)): arr[i] <= arr[i+1]);
 
+//bubble sort
 for (i := 0; i < n; i := i + 1) {
   for (j := 0; j < n - i - 1; j := j + 1) {
     if (arr[j] > arr[j+1]) {
@@ -93,16 +85,17 @@ for (i := 0; i < n; i := i + 1) {
     }
   }
 }
-assert(for (i in range(n-1)): arr[i] < arr[i+1]);
-</details> <details> <summary><strong>🔁 While Loop</strong></summary>
+assert(for (i in range (n-1)):arr[i] < arr[i+1]);
 
+//while loop
 x := 0;
 while (x < 4) {
   x := x + 1;
 }
 assert(x == 4);
-</details> <details> <summary><strong>🔀 If-Else Condition</strong></summary>
 
+
+//if else
 x := 3;
 if (x < 5) {
   y := x + 1;
@@ -110,25 +103,29 @@ if (x < 5) {
   y := x - 1;
 }
 assert(y > 0);
-</details>
-🧪 For Equivalence Checking
-<details> <summary><strong>🔁 Loop Equivalence – While vs For</strong></summary>
-Program 1:
+
+
+FOR EQUIVALENCE:
+
+
+//1st pair:
 
 x := 0;
 while (x < 4) {
   x := x + 1;
 }
 assert(x == 4);
-Program 2:
+
+--------------------
 
 x := 0;
 for (i := 0; i < 4; i := i + 1) {
   x := x + 1;
 }
 assert(x == 4);
-</details> <details> <summary><strong>➗ Summation Loop vs Formula</strong></summary>
-Program 1:
+
+
+//2nd pair:
 
 n := 10;  
 sum := 0;
@@ -137,16 +134,16 @@ while (i <= n) {
   sum := sum + i;
   i := i + 1;
 }
-assert(sum >= 0);
-Program 2:
+assert(sum >= 0);  
+
+---------------------
 
 n := 10;  
 sum := 0;
 if (n >= 0) {
   sum := n * (n + 1) / 2;
 }
-assert(sum >= 0);
-</details>
+assert(sum >= 0); 
 
 ---
 
@@ -203,4 +200,4 @@ assert(sum >= 0);
 - 🧑‍🏫 Integrate **interactive proof assistance** when automatic verification fails.
 
 
-
+- Made by Ayesha 🧪
