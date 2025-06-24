@@ -14,34 +14,36 @@ function rawLoader() {
 
 export default defineConfig({
   plugins: [
-    react(), // Add React plugin
-    rawLoader(), // Your custom plugin
+    react(),
+    rawLoader(),
   ],
   esbuild: {
     loader: 'jsx',
     include: /\.jsx?$/,
   },
   worker: {
-    format: 'es', // Use ES modules for workers
-    plugins: [] // No plugins for workers
+    format: 'es',
+    plugins: []
   },
   optimizeDeps: {
-    exclude: ['z3-solver'] // Exclude z3-solver from dependency optimization
+    include: ['react', 'react-dom', 'react-tabs'],
+    exclude: ['z3-solver']
+  },
+  ssr: {
+    noExternal: ['react-tabs']
   },
   build: {
     commonjsOptions: {
-      include: [] // Don't process any files with commonjs
+      include: []
     }
   },
   server: {
     headers: {
-      // Add headers for WebAssembly and SharedArrayBuffer support
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'require-corp'
     }
   },
   resolve: {
-    // Make sure Vite can resolve the worker file
     extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
   }
 });
