@@ -16,7 +16,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-flow-renderer": "^10.3.17",
-    "react-tabs": "^5.1.0",
+    "react-tabs": "5.1.0",
     "styled-components": "^6.1.17",
     "z3-solver": "^4.12.1"
   },
