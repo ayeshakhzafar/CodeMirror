@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import * as React from 'react';
+const { useState, useEffect } = React;
+
+import { Tabs, TabList, Tab, TabPanel } from './components/CustomTabs.jsx';
 import styled from 'styled-components';
 import VerificationMode from './components/VerificationMode';
 import EquivalenceMode from './components/EquivalenceMode';

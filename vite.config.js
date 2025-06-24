@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 function rawLoader() {
   return {
@@ -14,7 +15,9 @@ function rawLoader() {
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'classic', // ✅ Avoid jsxs/jsx errors
+    }),
     rawLoader(),
   ],
   esbuild: {
@@ -26,15 +29,23 @@ export default defineConfig({
     plugins: []
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-tabs'],
+    include: [
+      'react',
+      'react-dom',
+      'react/jsx-runtime',
+      'react/index.js'
+    ],
     exclude: ['z3-solver']
   },
   ssr: {
-    noExternal: ['react-tabs']
+    noExternal: ['react-tabs', 'styled-components']
   },
   build: {
     commonjsOptions: {
-      include: []
+      include: [/node_modules/] // ✅ allow parsing styled-components/react-tabs
+    },
+    rollupOptions: {
+      external: [] // leave empty to bundle all except node built-ins
     }
   },
   server: {
@@ -44,6 +55,11 @@ export default defineConfig({
     }
   },
   resolve: {
+    alias: {
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
+      'react/jsx-runtime': path.resolve('./node_modules/react/jsx-runtime.js')
+    },
     extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
   }
 });
